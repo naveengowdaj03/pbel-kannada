@@ -159,29 +159,6 @@ galleryItems.forEach(item => {
   });
 });
 
-// ─── Resident Registration Form ───────────────────────────
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name  = document.getElementById('inp-name').value.trim();
-    const tower = document.getElementById('inp-tower').value.trim();
-    const phone = document.getElementById('inp-phone').value.trim();
-    if (!name || !tower || !phone) {
-      alert('Please fill in your Name, Tower/Flat Number, and Contact Number.');
-      return;
-    }
-    const btn = document.getElementById('form-submit');
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting Registration...';
-    setTimeout(() => {
-      btn.style.display = 'none';
-      document.getElementById('form-success').classList.add('show');
-      this.reset();
-    }, 1200);
-  });
-}
-
 // ─── Smooth scroll for all anchor links ───────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
