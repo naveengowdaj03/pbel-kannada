@@ -514,32 +514,31 @@ ul {
 
 .hero-full-img {
   width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
   height: auto;
+  aspect-ratio: 2752 / 1536;
   display: block;
-  object-fit: contain;
-  object-position: center;
+  object-fit: fill;
   position: relative;
   z-index: 1;
 }
-/* Royal Gold Metallic & Deep Crimson Title — Starts from VERY TOP of Hero Image */
+/* Royal Gold Metallic & Deep Crimson Title — Aligned to BOTTOM of Hero Image */
 .hero-img-title {
   position: absolute;
-  top: 0;
+  bottom: 0;
+  top: auto;
   left: 0;
   right: 0;
-  padding: 0.6rem 1.5rem 1.6rem;
+  padding: 2.4rem 1.5rem 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.12rem;
+  gap: 0.1rem;
   pointer-events: none;
   z-index: 4;
-  background: linear-gradient(to bottom,
-    rgba(16, 4, 0, 0.85) 0%,
-    rgba(16, 4, 0, 0.52) 60%,
+  background: linear-gradient(to top,
+    rgba(14, 4, 0, 0.94) 0%,
+    rgba(14, 4, 0, 0.58) 65%,
     transparent 100%
   );
 }
@@ -553,27 +552,27 @@ ul {
   line-height: 1.05;
   order: 1;
 }
-/* "Kannada" — Royal Gold Metallic Gradient */
+/* "Kannada" — Royal Gold Metallic Gradient (Increased Font Size) */
 .hh-kannada {
   font-family: "Playfair Display", var(--font-main);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: clamp(3rem, 7vw, 5.8rem);
   font-weight: 900;
   background: linear-gradient(180deg, #FFF5C0 0%, #FFD700 45%, #FFA000 80%, #CC7A00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 16px rgba(255, 215, 0, 0.4));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
   letter-spacing: 0.03em;
   -webkit-text-stroke: 0;
 }
-/* "Habba" — Royal Crimson Metallic Gradient */
+/* "Habba" — Royal Crimson Metallic Gradient (Increased Font Size) */
 .hh-habba {
   font-family: "Playfair Display", var(--font-main);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: clamp(3rem, 7vw, 5.8rem);
   font-weight: 900;
   background: linear-gradient(180deg, #FF8080 0%, #E50914 45%, #B70000 80%, #7A0000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 16px rgba(229, 9, 20, 0.4));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(229, 9, 20, 0.5));
   letter-spacing: 0.03em;
   -webkit-text-stroke: 0;
 }
@@ -581,50 +580,34 @@ ul {
 .hero-img-title::before {
   content: "";
   display: block;
-  width: 42%;
-  max-width: 300px;
+  width: 45%;
+  max-width: 340px;
   height: 2px;
   background: linear-gradient(90deg, transparent, #E6A800 20%, #FFD700 50%, #E6A800 80%, transparent);
   border-radius: 2px;
-  margin: 0.35rem auto 0.35rem;
+  margin: 0.4rem auto 0.4rem;
   order: 2;
-  box-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.85);
 }
-/* Kannada script — Royal Crimson Metallic Script matching English size */
+/* Kannada script — Royal Crimson Metallic Script (Increased Font Size) */
 .hero-img-title .hero-kannada-script {
   order: 3;
   font-family: var(--font-kan);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
-  font-weight: 700;
+  font-size: clamp(2.8rem, 6.5vw, 5.4rem);
+  font-weight: 800;
   background: linear-gradient(180deg, #FF9999 0%, #E50914 50%, #B70000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 14px rgba(229, 9, 20, 0.4));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 18px rgba(229, 9, 20, 0.5));
   line-height: 1.15;
   -webkit-text-stroke: 0;
 }
-/* Year + location — Perfectly centered full-width flex bar at bottom of image */
-/* Year + location — Matches exact reference image: bold white uppercase text on bottom dark gradient */
-.hero-year-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.6rem 1rem 0.8rem;
-  background: linear-gradient(to top,
-    rgba(14, 4, 0, 0.82) 0%,
-    rgba(14, 4, 0, 0.45) 60%,
-    transparent 100%
-  );
-  z-index: 5;
-  pointer-events: none;
-}
+/* Year + location line at bottom of title block */
 .hero-year-text {
+  order: 4;
+  margin-top: 0.3rem;
   font-family: 'Outfit', var(--font-main), sans-serif;
-  font-size: clamp(1rem, 2.2vw, 1.6rem);
+  font-size: clamp(0.85rem, 1.8vw, 1.3rem);
   font-weight: 800;
   color: #FFFFFF;
   letter-spacing: 0.12em;
@@ -2182,6 +2165,44 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .hero-img-wrap {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  picture,
+  .hero-full-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-full-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1792 / 2400;
+    display: block;
+    object-fit: fill;
+  }
+
+  .hero-img-title {
+    padding: 2.5rem 0.75rem 0.8rem;
+  }
+
+  .hh-kannada,
+  .hh-habba {
+    font-size: clamp(2rem, 7.2vw, 3.2rem);
+  }
+
+  .hero-img-title .hero-kannada-script {
+    font-size: clamp(1.8rem, 6.5vw, 2.8rem);
+  }
+
+  .hero-year-text {
+    font-size: clamp(0.75rem, 3.2vw, 1rem);
+    letter-spacing: 0.1em;
+  }
+
   .timeline-row {
     flex-direction: column;
     gap: 1.5rem;
@@ -2205,24 +2226,13 @@ ul {
     margin-top: 60px;
   }
 
+  .hero-img-wrap {
+    min-height: 390px;
+  }
+
   .hero-full-img {
-    max-height: 60vw;
-  }
-
-  .hero-img-title {
-    padding: 0 0.75rem 1rem;
-  }
-
-  .hero-img-title .hero-kannada {
-    font-size: clamp(1.4rem, 6vw, 2.4rem);
-  }
-
-  .hero-img-title .hero-kannada-script {
-    font-size: clamp(1rem, 4.5vw, 1.8rem);
-  }
-
-  .hero-img-title .hero-year {
-    font-size: clamp(0.9rem, 3.5vw, 1.4rem);
+    height: 390px;
+    max-height: none;
   }
 
   .hero-below {
