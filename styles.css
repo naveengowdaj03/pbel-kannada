@@ -478,48 +478,38 @@ ul {
   margin-top: 72px;
 }
 
-/* Full intact image wrapper - fills desktop width with extended festival designs */
+/* Full intact image wrapper — background-cover on desktop, natural img on mobile */
 .hero-img-wrap {
   position: relative;
   width: 100%;
-  background:
-    radial-gradient(circle at 10% 50%, rgba(230, 168, 0, 0.18) 0%, transparent 45%),
-    radial-gradient(circle at 90% 50%, rgba(230, 168, 0, 0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% 0%, #FFF8E7 0%, #F5E5C0 50%, #EDD499 100%);
-  line-height: 0;
   overflow: hidden;
-}
-/* Extended festive side motifs for desktop */
-.hero-img-wrap::before,
-.hero-img-wrap::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 140px;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0.65;
-}
-.hero-img-wrap::before {
-  left: 0;
-  background: radial-gradient(circle at 0% 30%, rgba(204, 0, 0, 0.15) 0%, transparent 70%),
-              radial-gradient(circle at 0% 70%, rgba(230, 168, 0, 0.25) 0%, transparent 70%);
-}
-.hero-img-wrap::after {
-  right: 0;
-  background: radial-gradient(circle at 100% 30%, rgba(204, 0, 0, 0.15) 0%, transparent 70%),
-              radial-gradient(circle at 100% 70%, rgba(230, 168, 0, 0.25) 0%, transparent 70%);
+  /* Desktop: use image as background so it fills full width without gaps */
+  background-image: url('kannada_pics/kar_map_3.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  /* Warm festive fallback colour visible while image loads */
+  background-color: #F5E5C0;
+  /* Height: 100vh minus navbar on desktop */
+  min-height: calc(100vh - 72px);
+  line-height: 0;
 }
 
+/* Hide the <img> tag on desktop — background-image handles it */
 .hero-full-img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 2752 / 1536;
-  display: block;
-  object-fit: fill;
-  position: relative;
-  z-index: 1;
+  display: none;
+}
+
+/* Pseudo-element subtle vignette overlay on sides (decorative) */
+.hero-img-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    radial-gradient(ellipse at 0% 50%, rgba(204, 0, 0, 0.10) 0%, transparent 40%),
+    radial-gradient(ellipse at 100% 50%, rgba(204, 0, 0, 0.10) 0%, transparent 40%);
 }
 /* Royal Gold Metallic & Deep Crimson Title — Aligned to BOTTOM of Hero Image */
 .hero-img-title {
@@ -545,62 +535,121 @@ ul {
 /* Heading row — both words on one line with perfect spacing */
 .hero-img-heading {
   display: flex;
-  gap: 0.35em;
+  gap: 0.45em;
   align-items: baseline;
   justify-content: center;
   margin: 0;
-  line-height: 1.05;
+  line-height: 1.0;
   order: 1;
+  /* Subtle entrance scale */
+  animation: habba-entrance 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-/* "Kannada" — Royal Gold Metallic Gradient (Increased Font Size) */
+@keyframes habba-entrance {
+  from { opacity: 0; transform: translateY(22px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+/* "Kannada" — Ultra Rich Royal Gold Metallic */
 .hh-kannada {
   font-family: "Playfair Display", var(--font-main);
-  font-size: clamp(3rem, 7vw, 5.8rem);
+  font-size: clamp(3.4rem, 8.5vw, 7rem);
   font-weight: 900;
-  background: linear-gradient(180deg, #FFF5C0 0%, #FFD700 45%, #FFA000 80%, #CC7A00 100%);
+  background: linear-gradient(
+    175deg,
+    #FFFBE0 0%,
+    #FFE066 18%,
+    #FFD700 35%,
+    #FFA500 55%,
+    #E67E00 72%,
+    #FFD700 88%,
+    #FFFBE0 100%
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
-  letter-spacing: 0.03em;
-  -webkit-text-stroke: 0;
+  filter:
+    drop-shadow(0 0 18px rgba(255, 200, 0, 0.75))
+    drop-shadow(0 4px 14px rgba(0, 0, 0, 0.9));
+  letter-spacing: 0.06em;
+  animation: gold-shimmer 3.5s linear infinite;
 }
-/* "Habba" — Royal Crimson Metallic Gradient (Increased Font Size) */
+/* "Habba" — Same Royal Gold Metallic as Kannada */
 .hh-habba {
   font-family: "Playfair Display", var(--font-main);
-  font-size: clamp(3rem, 7vw, 5.8rem);
+  font-size: clamp(3.4rem, 8.5vw, 7rem);
   font-weight: 900;
-  background: linear-gradient(180deg, #FF8080 0%, #E50914 45%, #B70000 80%, #7A0000 100%);
+  background: linear-gradient(
+    175deg,
+    #FFFBE0 0%,
+    #FFE066 18%,
+    #FFD700 35%,
+    #FFA500 55%,
+    #E67E00 72%,
+    #FFD700 88%,
+    #FFFBE0 100%
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(229, 9, 20, 0.5));
-  letter-spacing: 0.03em;
-  -webkit-text-stroke: 0;
+  filter:
+    drop-shadow(0 0 18px rgba(255, 200, 0, 0.75))
+    drop-shadow(0 4px 14px rgba(0, 0, 0, 0.9));
+  letter-spacing: 0.06em;
+  animation: gold-shimmer 3.5s linear infinite;
 }
-/* Gold shimmer divider line between English & Kannada script */
+
+@keyframes gold-shimmer {
+  0%   { background-position: 0%   center; }
+  100% { background-position: 200% center; }
+}
+@keyframes saffron-shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: 0%   center; }
+}
+@keyframes crimson-shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: 0%   center; }
+}
+/* Gold shimmer ornament divider line */
 .hero-img-title::before {
-  content: "";
+  content: "✦  ———————  ✦";
   display: block;
-  width: 45%;
-  max-width: 340px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #E6A800 20%, #FFD700 50%, #E6A800 80%, transparent);
-  border-radius: 2px;
-  margin: 0.4rem auto 0.4rem;
+  width: auto;
+  color: #FFD700;
+  font-size: clamp(0.65rem, 1.4vw, 0.9rem);
+  letter-spacing: 0.3em;
+  text-shadow:
+    0 0 12px rgba(255, 215, 0, 0.95),
+    0 0 28px rgba(255, 215, 0, 0.55);
+  margin: 0.35rem auto 0.25rem;
   order: 2;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.85);
+  animation: ornament-glow 2.5s ease-in-out infinite alternate;
 }
-/* Kannada script — Royal Crimson Metallic Script (Increased Font Size) */
+@keyframes ornament-glow {
+  from { text-shadow: 0 0 8px rgba(255,215,0,0.7), 0 0 20px rgba(255,215,0,0.3); }
+  to   { text-shadow: 0 0 18px rgba(255,215,0,1),  0 0 40px rgba(255,215,0,0.7); }
+}
+/* Kannada script — Glowing Crimson with pulse */
 .hero-img-title .hero-kannada-script {
   order: 3;
   font-family: var(--font-kan);
-  font-size: clamp(2.8rem, 6.5vw, 5.4rem);
+  font-size: clamp(2.6rem, 6vw, 5rem);
   font-weight: 800;
-  background: linear-gradient(180deg, #FF9999 0%, #E50914 50%, #B70000 100%);
+  background: linear-gradient(175deg, #FFB3B3 0%, #FF3333 30%, #E50914 55%, #B70000 80%, #FF3333 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 18px rgba(229, 9, 20, 0.5));
-  line-height: 1.15;
-  -webkit-text-stroke: 0;
+  filter:
+    drop-shadow(0 0 16px rgba(229, 9, 20, 0.8))
+    drop-shadow(0 3px 10px rgba(0, 0, 0, 0.9));
+  line-height: 1.1;
+  animation: crimson-shimmer 3.5s linear infinite, script-glow-pulse 2.8s ease-in-out infinite alternate;
+}
+@keyframes script-glow-pulse {
+  from { filter: drop-shadow(0 0 10px rgba(229,9,20,0.6))  drop-shadow(0 3px 10px rgba(0,0,0,0.9)); }
+  to   { filter: drop-shadow(0 0 28px rgba(255,60,60,0.95)) drop-shadow(0 3px 10px rgba(0,0,0,0.9)); }
 }
 /* Year + location line at bottom of title block */
 .hero-year-text {
@@ -618,6 +667,24 @@ ul {
   text-align: center;
   white-space: nowrap;
 }
+
+/* PBEL City, Hyderabad — location tag below Kannada script */
+.hero-location {
+  order: 4;
+  display: inline-block;
+  margin-top: 0.15rem;
+  font-family: var(--font-main);
+  font-size: clamp(0.9rem, 2vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #FFE87C;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.9),
+    0 0 16px rgba(255, 215, 0, 0.45);
+  white-space: nowrap;
+}
+
 
 
 
@@ -974,8 +1041,12 @@ ul {
 
 /* ABOUT */
 .about-section {
-  padding: 6.5rem 0;
+  padding: 4rem 0 1.5rem;
   background: var(--cream);
+}
+
+.about-section .section-header {
+  margin-bottom: 0;
 }
 
 .about-cards {
@@ -1102,6 +1173,18 @@ ul {
 
 .tag-day2 {
   background: linear-gradient(135deg, #27ae60, #1e8449);
+}
+
+.event-quote-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--red-dark);
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.06), rgba(230, 168, 0, 0.12));
+  border-left: 3px solid var(--red);
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.8rem;
+  border-radius: 0 8px 8px 0;
+  line-height: 1.55;
 }
 
 .event-card-body {
@@ -2165,27 +2248,28 @@ ul {
 }
 
 @media (max-width: 768px) {
+  /* On mobile: also use background-image cover — fills edge to edge, no side gaps */
   .hero-img-wrap {
+    background-image: url('kannada_pics/kar_map_3.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #F5E5C0;
+    /* Square image: 100vw height shows it fully without gaps */
+    min-height: 100vw;
     width: 100%;
     overflow: hidden;
   }
 
+  /* Hide img tag on mobile too — background handles it */
   picture,
   .hero-full-img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .hero-full-img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1792 / 2400;
-    display: block;
-    object-fit: fill;
+    display: none;
   }
 
   .hero-img-title {
+    position: absolute;
+    bottom: 0;
     padding: 2.5rem 0.75rem 0.8rem;
   }
 
@@ -2202,6 +2286,7 @@ ul {
     font-size: clamp(0.75rem, 3.2vw, 1rem);
     letter-spacing: 0.1em;
   }
+
 
   .timeline-row {
     flex-direction: column;
