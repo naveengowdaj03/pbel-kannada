@@ -1257,10 +1257,50 @@ ul {
   font-weight: 700;
   color: #7A5300;
   margin-bottom: 1.25rem;
+  line-height: 1.45;
+}
+
+.audience-badge + .audience-badge {
+  margin-top: -0.65rem;
 }
 
 .audience-badge i {
   color: #b8860b;
+  flex-shrink: 0;
+}
+
+.audience-badge-multi {
+  align-items: flex-start;
+}
+
+.audience-badge-multi i {
+  margin-top: 3px;
+}
+
+.note-points-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+}
+
+.note-heading {
+  font-weight: 700;
+  color: #7A5300;
+}
+
+.note-points-list {
+  list-style: disc;
+  padding-left: 1.1rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.note-points-list li {
+  line-height: 1.4;
 }
 
 .event-register-btn {
